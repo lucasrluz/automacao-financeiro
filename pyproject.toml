@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "automacao-financeiro"
+version = "0.1.0"
+description = ""
+authors = ["lucasrluz <lucasr.luzbr@gmail.com>"]
+readme = "README.md"
+packages = [{include = "automacao_financeiro"}]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.12"
+pyinstaller = "^5.7.0"
+playwright = "^1.29.1"
+python-dotenv = "^0.21.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
