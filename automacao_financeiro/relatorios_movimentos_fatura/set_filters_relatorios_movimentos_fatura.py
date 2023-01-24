@@ -17,4 +17,5 @@ def set_filters_relatorios_movimentos_fatura(page: Page):
     page.evaluate('(PERIODO_FIM) => document.querySelector(PERIODO_FIM).value = "24/01/2023"', PERIODO_FIM)
     page.evaluate('(PESQUISAR_BUTTON) => document.querySelector(PESQUISAR_BUTTON).click()', PESQUISAR_BUTTON)
 
+    sleep(3)
     page.evaluate('(GERAR_EXEL_BUTTON) => document.querySelector(GERAR_EXEL_BUTTON).click()', GERAR_EXEL_BUTTON)
