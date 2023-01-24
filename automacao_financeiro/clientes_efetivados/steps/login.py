@@ -8,4 +8,4 @@ from .util.elements_identifiers import (
 def login(page: Page):
     page.locator(LOGIN_USERNAME).type('92254_anafernande')
     page.locator(LOGIN_PASSWORD).type('Agilizza23*')
-    page.locator(LOGIN_BUTTON_SUBMIT).click()
+    page.evaluate('(LOGIN_BUTTON_SUBMIT) => document.querySelector(LOGIN_BUTTON_SUBMIT).click()', LOGIN_BUTTON_SUBMIT)
