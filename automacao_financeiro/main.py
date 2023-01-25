@@ -2,7 +2,10 @@ from playwright.sync_api import Playwright, sync_playwright
 from clientes_efetivados.run_clientes_efetivados import run_clientes_efetivados
 from relatorios_movimentos_fatura.run_relatorios_movimentos_fatura import run_relatorios_movimentos_fatura
 from login.login import login
+from dotenv import load_dotenv
 from time import sleep
+
+load_dotenv()
 
 def main(playwright: Playwright):
     browser = playwright.chromium.launch(headless=False, channel='chromium', downloads_path='.')
