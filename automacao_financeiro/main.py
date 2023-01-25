@@ -1,6 +1,6 @@
 from playwright.sync_api import Playwright, sync_playwright
-from clientes_efetivados.steps.login import login
-from clientes_efetivados.steps.set_filters import set_filters
+from clientes_efetivados.run_clientes_efetivados import run_clientes_efetivados
+from login.login import login
 from relatorios_movimentos_fatura.set_filters_relatorios_movimentos_fatura import set_filters_relatorios_movimentos_fatura
 from time import sleep
 
@@ -11,8 +11,7 @@ def main(playwright: Playwright):
 
     login(page)
 
-    sleep(5)
-    set_filters(page)
+    run_clientes_efetivados(page)
 
     sleep(5)
     set_filters_relatorios_movimentos_fatura(page)

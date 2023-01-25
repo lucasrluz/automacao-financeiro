@@ -1,5 +1,5 @@
 from playwright.sync_api import Page
-from .util.elements_identifiers import (
+from .util.element_identifiers_login import (
     LOGIN_USERNAME,
     LOGIN_PASSWORD,
     LOGIN_BUTTON_SUBMIT
