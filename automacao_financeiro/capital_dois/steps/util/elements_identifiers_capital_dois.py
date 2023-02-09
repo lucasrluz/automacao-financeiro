@@ -4,3 +4,7 @@ LOGIN_BUTTON = '#wrapper > div > div > form > div.form-group.text-center.m-t-20 
 ACEITAR_COOKIES = '#login > div.swal2-container.swal2-bottom-end.swal2-backdrop-show > div > div.swal2-actions > button.swal2-confirm.btnCookies.swal2-styled'
 PRODUCAO = '#menu > ul > li:nth-child(7) > a'
 CONTRATOS_GERAL = '#menu > ul > li:nth-child(7) > ul > li:nth-child(1) > a'
+PASSWORD_RELATORIO = '#senharelatorio'
+RELATORIO_BUTTON = '#btn-acessar-c2'
+INIT_DATE = '#datai'
+GERAR_EXCEL = '#excel'
