@@ -22,7 +22,7 @@ def main(playwright: Playwright):
     browser = playwright.chromium.launch(headless=False, channel='chromium', downloads_path='.')
     page = browser.new_page()
 
-    run_facta(page, facta_data)
+    # run_facta(page, facta_data)
     
     # run_novo_saque(page)
 

@@ -6,7 +6,7 @@ from .util.elements_identifiers import (
 )
 
 def set_filter(page: Page):
-    page.type(FILTER_INIT_DATE, '01-01-2023') # dd-mm-yyyy
-    page.type(FILTER_END_DATE, '25-01-2023') # dd-mm-yyyy
+    page.type(FILTER_INIT_DATE, '05-01-2023') # dd-mm-yyyy
+    page.type(FILTER_END_DATE, '09-02-2023') # dd-mm-yyyy
 
     page.click(FILTER_BUTTON)
