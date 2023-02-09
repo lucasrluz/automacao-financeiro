@@ -7,16 +7,26 @@ from time import sleep
 
 load_dotenv()
 
+facta_data = {
+    'clientes_efetivados': {
+        'init_date': '05/02/2023',
+        'end_date': '09/02/2023'
+    },
+    'relatorios_movimentos_fatura': {
+        'init_date': '05/02/2023',
+        'end_date': '09/02/2023'
+    }
+}
+
 def main(playwright: Playwright):
     browser = playwright.chromium.launch(headless=False, channel='chromium', downloads_path='.')
     page = browser.new_page()
-    # page.goto('http://desenv.facta.com.br/sistemaNovo/login.php')
-    # page.goto('https://nsaque.ultragate.com.br/login')
 
-    # run_facta(page)
+    run_facta(page, facta_data)
+    
     # run_novo_saque(page)
 
-    run_capital_dois(page)
+    # run_capital_dois(page)
     sleep(1000000)
 
 with sync_playwright() as playwright:

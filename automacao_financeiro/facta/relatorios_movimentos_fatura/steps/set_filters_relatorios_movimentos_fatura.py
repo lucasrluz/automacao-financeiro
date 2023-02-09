@@ -4,14 +4,33 @@ from .util.elements_identifiers_relatorios_movimentos_fatura import (
     PERIODO_INICIO,
     PERIODO_FIM,
     PESQUISAR_BUTTON,
+    MENU,
+    FACTA_FINANCEIRA,
+    FINANCEIRO
 )
-from time import sleep
+from .util.date import Date
 
-def set_filters_relatorios_movimentos_fatura(page: Page):
-    page.evaluate('(RELATORIOS_MOVIMENTOS_FATURA_BUTTON) => document.querySelector(RELATORIOS_MOVIMENTOS_FATURA_BUTTON).click()', RELATORIOS_MOVIMENTOS_FATURA_BUTTON)
+def set_filters_relatorios_movimentos_fatura(page: Page, date: Date):
+    page.wait_for_timeout(10000)
+    
+    page.click(MENU)
+    page.click(FACTA_FINANCEIRA)
+    page.click(FINANCEIRO)
 
-    sleep(5)
+    page.wait_for_selector(RELATORIOS_MOVIMENTOS_FATURA_BUTTON)
+    page.click(RELATORIOS_MOVIMENTOS_FATURA_BUTTON)
 
-    page.evaluate('(PERIODO_INICIO) => document.querySelector(PERIODO_INICIO).value = "15/01/2023"', PERIODO_INICIO)
-    page.evaluate('(PERIODO_FIM) => document.querySelector(PERIODO_FIM).value = "24/01/2023"', PERIODO_FIM)
-    page.evaluate('(PESQUISAR_BUTTON) => document.querySelector(PESQUISAR_BUTTON).click()', PESQUISAR_BUTTON)
+    page.wait_for_selector(PERIODO_INICIO)
+    page.evaluate(
+        f'(PERIODO_INICIO) => document.querySelector(PERIODO_INICIO).value = "{date["init_date"]}"',
+        PERIODO_INICIO
+    )
+
+    page.wait_for_selector(PERIODO_FIM)
+    page.evaluate(
+        f'(PERIODO_FIM) => document.querySelector(PERIODO_FIM).value = "{date["end_date"]}"',
+        PERIODO_FIM
+    )
+
+    page.wait_for_selector(PESQUISAR_BUTTON)
+    page.click(PESQUISAR_BUTTON)

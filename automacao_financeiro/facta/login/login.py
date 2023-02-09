@@ -9,6 +9,11 @@ from .util.element_identifiers_login import (
 env = dotenv_values('.env')
 
 def login(page: Page):
-    page.locator(LOGIN_USERNAME).type(env['USERNAME'])
-    page.locator(LOGIN_PASSWORD).type(env['PASSWORD'])
-    page.evaluate('(LOGIN_BUTTON_SUBMIT) => document.querySelector(LOGIN_BUTTON_SUBMIT).click()', LOGIN_BUTTON_SUBMIT)
+    page.wait_for_selector(LOGIN_USERNAME)
+    page.type(LOGIN_USERNAME, env['USERNAME'])
+
+    page.wait_for_selector(LOGIN_PASSWORD)
+    page.type(LOGIN_PASSWORD, env['PASSWORD'])
+
+    page.wait_for_selector(LOGIN_BUTTON_SUBMIT)
+    page.click(LOGIN_BUTTON_SUBMIT)

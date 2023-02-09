@@ -4,4 +4,5 @@ from .util.elements_identifiers_clientes_efetivados import (
 )
 
 def table_download_clientes_efetivados(page: Page):
-    page.locator(GERAR_CONSULTA_BUTTON).click()
+    page.wait_for_selector(GERAR_CONSULTA_BUTTON)
+    page.click(GERAR_CONSULTA_BUTTON)
