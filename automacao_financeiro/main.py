@@ -29,5 +29,20 @@ def main(playwright: Playwright):
     run_capital_dois(page)
     sleep(1000000)
 
-with sync_playwright() as playwright:
-    main(playwright)
+# with sync_playwright() as playwright:
+    # main(playwright)
+
+
+from PySide6.QtGui import QGuiApplication
+from PySide6.QtQml import QQmlApplicationEngine
+from PySide6.QtCore import QObject, Slot
+
+def run_ui():
+    app = QGuiApplication()
+
+    engine = QQmlApplicationEngine()
+    engine.load('automacao_financeiro/ui/ui.qml')
+
+    app.exec()
+
+run_ui()
