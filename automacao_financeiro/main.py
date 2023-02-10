@@ -1,47 +1,36 @@
-from playwright.sync_api import Playwright, sync_playwright
 from dotenv import load_dotenv
-from facta.run_facta import run_facta
-from novo_saque.run_novo_saque import run_novo_saque
-from capital_dois.run_capital_dois import run_capital_dois
-from time import sleep
+from PySide6.QtGui import QGuiApplication
+from PySide6.QtQml import QQmlApplicationEngine
+from PySide6.QtCore import QObject, Slot, QStandardPaths
+from automacao_financeiro.service.run_service import run_service
 
 load_dotenv()
 
-facta_data = {
-    'clientes_efetivados': {
-        'init_date': '05/02/2023',
-        'end_date': '09/02/2023'
-    },
-    'relatorios_movimentos_fatura': {
-        'init_date': '05/02/2023',
-        'end_date': '09/02/2023'
-    }
-}
+class Bridge(QObject):
+    @Slot(str, str, list, result=None)
+    def start(self, initDate, endDate, b):
+        data = {
+            'init_date': initDate,
+            'end_date': endDate,
+            'banks': b 
+        }
 
-def main(playwright: Playwright):
-    browser = playwright.chromium.launch(headless=False, channel='chromium', downloads_path='.')
-    page = browser.new_page()
+        data['init_date'] = '05/02/2023'
+        data['end_date'] = '10/02/2023'
 
-    run_facta(page, facta_data)
-    
-    run_novo_saque(page)
-
-    run_capital_dois(page)
-    sleep(1000000)
-
-# with sync_playwright() as playwright:
-    # main(playwright)
-
-
-from PySide6.QtGui import QGuiApplication
-from PySide6.QtQml import QQmlApplicationEngine
-from PySide6.QtCore import QObject, Slot
+        run_service(data)
 
 def run_ui():
     app = QGuiApplication()
 
+    QStandardPaths.writableLocation(QStandardPaths.StandardLocation.DownloadLocation)
+
     engine = QQmlApplicationEngine()
     engine.load('automacao_financeiro/ui/ui.qml')
+
+    bridge = Bridge()
+    context = engine.rootContext()
+    context.setContextProperty('bridge', bridge)
 
     app.exec()
 
