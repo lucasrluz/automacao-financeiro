@@ -111,6 +111,18 @@ ApplicationWindow {
                     width: parent.width
                     height: 50
                     anchors.horizontalCenter: parent.horizontalCenter
+                    onClicked: {
+                        const initDate = init_date_text_field.text
+                        const endDate = end_date_text_field.text
+
+                        const banks = [
+                            capital_dois.checkState,
+                            facta.checkState,
+                            novo_saque.checkState
+                        ]
+
+                        bridge.start(initDate, endDate, banks)
+                    }
                 }
             }
         }
@@ -124,64 +136,22 @@ ApplicationWindow {
 
             CheckBox {
                 checked: true
-                id: 'a'
-                text: qsTr("Banco A")
+                id: 'capital_dois'
+                text: qsTr("Capital2")
             }
 
             CheckBox {
                 checked: true
-                id: 'b'
-                text: qsTr("Banco B")
-                anchors.top: a.bottom
+                id: 'facta'
+                text: qsTr("Facta")
+                anchors.top: capital_dois.bottom
             }
 
             CheckBox {
                 checked: true
-                id: 'c'
-                text: qsTr("Banco C")
-                anchors.top: b.bottom
-            }
-
-            CheckBox {
-                checked: true
-                id: 'd'
-                text: qsTr("Banco D")
-                anchors.top: c.bottom
-            }
-        }
-
-        Rectangle {
-            color: '#000000ff'
-            width: parent.width * 0.50
-            height: 100
-            anchors.top: rectangle_start_button.bottom
-            anchors.right: parent.right
-
-            CheckBox {
-                checked: true
-                id: 'e'
-                text: qsTr("Banco E")
-            }
-
-            CheckBox {
-                checked: true
-                id: 'f'
-                text: qsTr("Banco F")
-                anchors.top: e.bottom
-            }
-
-            CheckBox {
-                checked: true
-                id: 'g'
-                text: qsTr("Banco G")
-                anchors.top: f.bottom
-            }
-
-            CheckBox {
-                checked: true
-                id: 'h'
-                text: qsTr("Banco H")
-                anchors.top: g.bottom
+                id: 'novo_saque'
+                text: qsTr("Novo Saque")
+                anchors.top: facta.bottom
             }
         }
     }
