@@ -10,7 +10,7 @@ from capital_dois.steps.util.elements_identifiers_capital_dois import (
 
 env = dotenv_values()
 
-def contrato_geral(page: Page):
+def contrato_geral(page: Page, date):
     page.wait_for_selector(PRODUCAO)
     page.evaluate(
         '(CONTRATOS_GERAL) => document.querySelector(CONTRATOS_GERAL).click()',
@@ -21,4 +21,4 @@ def contrato_geral(page: Page):
 
     page.wait_for_selector(INIT_DATE)
 
-    page.evaluate('() => document.querySelector("#datai").value = "05/02/2023"')   
+    page.evaluate(f'() => document.querySelector("#datai").value = "{date["init_date"]}"')   
