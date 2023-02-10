@@ -16,71 +16,81 @@ ApplicationWindow {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
 
-        Label {
-            id: 'novo_saque_label'
-            text: 'Novo Saque'
-            anchors.horizontalCenter: parent.horizontalCenter 
-        }
-
-        Label {
-            id: 'init_date_label'
-            text: 'Data Inicial'
-            anchors.top: novo_saque_label.bottom
-            anchors.left: parent.left
-            anchors.topMargin: 20
-        }
-
-        TextField {
-            id: 'init_date_text_field'
-            placeholderText: 'dd/mm/yyyy'
+        Rectangle {
+            id: 'ractangle_date_label'
+            color: '#000000'
             width: parent.width
             height: 50
-            anchors.top: init_date_label.bottom
             anchors.horizontalCenter: parent.horizontalCenter
+
+            Rectangle {
+                color: '#000000'
+                id: 'ractangle_init_date_label'
+                width: parent.width * 0.50
+                height: 50
+
+                Label {
+                    id: 'init_date_label'
+                    text: 'Data Inicial'
+                    anchors.left: parent.left
+                    width: parent.width * 0.80
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.leftMargin: parent.width * 0.10
+                }
+            }
+            
+            Rectangle {
+                color: '#000000'
+                width: parent.width * 0.50
+                height: 50
+                anchors.right: parent.right
+                Label {
+                    id: 'end_date_label'
+                    text: 'Data Final'
+                    width: parent.width * 0.80
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.rightMargin: parent.width * 0.10
+                }
+            }
         }
 
-        Label {
-            id: 'end_date_label'
-            text: 'Data Final'
-            anchors.top: init_date_text_field.bottom
-            anchors.left: parent.left
-            anchors.topMargin: 20
-        }
-
-        TextField {
-            id: 'end_date_text_field'
-            placeholderText: 'dd/mm/yyyy'
+        Rectangle {
+            id: 'ractangle_date_text_field'
+            color: '#000000'
             width: parent.width
             height: 50
-            anchors.top: end_date_label.bottom
+            anchors.top: ractangle_date_label.bottom
             anchors.horizontalCenter: parent.horizontalCenter
-        }
 
-		    Label {
-            id: 'email_for_report_label'
-            text: 'E-mail'
-            anchors.top: end_date_text_field.bottom
-            anchors.left: parent.left
-            anchors.topMargin: 20
-        }
+            Rectangle {
+                color: '#000000'
+                width: parent.width * 0.50
+                height: 50
+                
+                TextField {
+                    id: 'init_date_text_field'
+                    placeholderText: 'dd/mm/yyyy'
+                    width: parent.width * 0.80
+                    anchors.leftMargin: parent.width * 0.10
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+            }
 
-        TextField {
-            id: 'email_for_report_text_field'
-            placeholderText: 'E-mail'
-            width: parent.width
-            height: 50
-            anchors.top: email_for_report_label.bottom
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
+            Rectangle {
+                color: '#000000'
+                width: parent.width * 0.50
+                height: 50
+                anchors.right: parent.right
 
-        Button {
-            id: 'submit_button'
-            text: 'Solicitar'
-            width: parent.width
-            height: 50
-            anchors.top: email_for_report_text_field.bottom
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.topMargin: 20
+                TextField {
+                    id: 'end_date_text_field'
+                    placeholderText: 'dd/mm/yyyy'
+                    width: parent.width * 0.80
+                    anchors.leftMargin: parent.width * 0.10
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+            }
         }
     }
 }
