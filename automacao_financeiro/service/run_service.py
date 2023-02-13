@@ -1,7 +1,7 @@
 from playwright.sync_api import Page, sync_playwright
-from automacao_financeiro.facta.run_facta import run_facta
-from automacao_financeiro.novo_saque.run_novo_saque import run_novo_saque
-from automacao_financeiro.capital_dois.run_capital_dois import run_capital_dois
+from .facta.run_facta import run_facta
+from .novo_saque.run_novo_saque import run_novo_saque
+from .capital_dois.run_capital_dois import run_capital_dois
 import shutil
 from time import sleep
 
