@@ -116,9 +116,9 @@ ApplicationWindow {
                         const endDate = end_date_text_field.text
 
                         const banks = [
-                            capital_dois.checkState,
                             facta.checkState,
-                            novo_saque.checkState
+                            novo_saque.checkState,
+                            capital_dois.checkState
                         ]
 
                         bridge.start(initDate, endDate, banks)
@@ -136,15 +136,8 @@ ApplicationWindow {
 
             CheckBox {
                 checked: true
-                id: 'capital_dois'
-                text: qsTr("Capital2")
-            }
-
-            CheckBox {
-                checked: true
                 id: 'facta'
                 text: qsTr("Facta")
-                anchors.top: capital_dois.bottom
             }
 
             CheckBox {
@@ -152,6 +145,13 @@ ApplicationWindow {
                 id: 'novo_saque'
                 text: qsTr("Novo Saque")
                 anchors.top: facta.bottom
+            }
+            
+            CheckBox {
+                checked: true
+                id: 'capital_dois'
+                text: qsTr("Capital2")
+                anchors.top: novo_saque.bottom
             }
         }
     }

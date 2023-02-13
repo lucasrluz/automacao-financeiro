@@ -8,17 +8,17 @@ load_dotenv()
 
 class Bridge(QObject):
     @Slot(str, str, list, result=None)
-    def start(self, initDate, endDate, b):
+    def start(self, initDate, endDate, banks):
         data = {
             'init_date': initDate,
             'end_date': endDate,
-            'banks': b 
+            'banks': banks 
         }
 
         data['init_date'] = '05/02/2023'
         data['end_date'] = '10/02/2023'
 
-        run_service(data)
+        run_service(data, banks)
 
 def run_ui():
     app = QGuiApplication()

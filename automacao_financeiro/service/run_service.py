@@ -7,7 +7,7 @@ from time import sleep
 
 playwright = sync_playwright().start()
 
-def run_service(data):
+def run_service(data, banks: list):
     browser = playwright.chromium.launch(headless=False, channel='chromium', downloads_path='/home/lucas/Projects/automacao-financeiro/relatorios')
     page = browser.new_page()
 
@@ -16,18 +16,22 @@ def run_service(data):
         'end_date': data['end_date']
     }
 
-    run_facta(page, date)
+    if banks[0] == 2:
+        run_facta(page, date)
     
-    run_novo_saque(page, date)
+    if banks[1] == 2:
+        run_novo_saque(page, date)
+    
+    if banks[2] == 2:
+        run_capital_dois(page, date)
 
-    run_capital_dois(page, date)
-
-    sleep(5)
+    sleep(8)
     shutil.rmtree('/home/lucas/Documents/relatorios')
 
+    sleep(1)
     shutil.move(
         '/home/lucas/Projects/automacao-financeiro/relatorios',
         '/home/lucas/Documents'
     )
-    sleep(5)
+    sleep(1)
     page.close()
