@@ -29,3 +29,5 @@ def run_service(data):
         '/home/lucas/Projects/automacao-financeiro/relatorios',
         '/home/lucas/Documents'
     )
+    sleep(5)
+    page.close()

@@ -1,6 +1,6 @@
 from playwright.sync_api import Page
 from dotenv import dotenv_values
-from capital_dois.steps.util.elements_identifiers_capital_dois import (
+from .util.elements_identifiers_capital_dois import (
     PRODUCAO,
     CONTRATOS_GERAL,
     PASSWORD_RELATORIO,
