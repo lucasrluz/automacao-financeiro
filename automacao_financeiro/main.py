@@ -7,8 +7,8 @@ from automacao_financeiro.service.run_service import run_service
 load_dotenv()
 
 class Bridge(QObject):
-    @Slot(str, str, list, result=None)
-    def start(self, initDate, endDate, banks):
+    @Slot(str, str, str, list, result=None)
+    def start(self, initDate, endDate, view_browser, banks):
         data = {
             'init_date': initDate,
             'end_date': endDate,
@@ -18,7 +18,7 @@ class Bridge(QObject):
         data['init_date'] = '05/02/2023'
         data['end_date'] = '10/02/2023'
 
-        run_service(data, banks)
+        run_service(data, view_browser, banks)
 
 def run_ui():
     app = QGuiApplication()
