@@ -1,0 +1,7 @@
+MENU = '#corpo > header > div > div > div > a.toggle-nav.btn.pull-left'
+FACTA_FINANCEIRA = '#main-nav > div > ul > li:nth-child(6) > a'
+FINANCEIRO = '#main-nav > div > ul > li:nth-child(6) > ul > li:nth-child(6) > a'
+RELATORIO_DE_ANTECIPACOES = '#main-nav > div > ul > li:nth-child(6) > ul > li:nth-child(6) > ul > li:nth-child(7) > a > span'
+MONTH = '#dataPesquisaMes'
+YEAR = '#dataPesquisaAno'
+PESQUISAR_BUTTON = '#contratosAntecipadosFacta > div > div:nth-child(7) > button'
