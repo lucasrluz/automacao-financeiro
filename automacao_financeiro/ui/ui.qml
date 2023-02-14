@@ -94,11 +94,61 @@ ApplicationWindow {
         }
 
         Rectangle {
-            id: 'rectangle_start_button'
+            id: 'rectangle_email_label'
             color: '#000000ff'
             width: parent.width
             height: 50
             anchors.top: ractangle_date_text_field.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            Label {
+                id: 'email_label'
+                text: 'E-mail para o Novo Saque'
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: parent.left
+                anchors.leftMargin: parent.width * 0.05
+            }
+        }
+
+        Rectangle {
+            id: 'rectangle_email_text_field'
+            color: '#000000ff'
+            width: parent.width
+            height: 50
+            anchors.top: rectangle_email_label.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            TextField {
+                id: 'email_text_field'
+                placeholderText: 'E-mail'
+                width: parent.width * 0.90
+                anchors.leftMargin: parent.width * 0.10
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+        }
+
+        Rectangle {
+            id: 'rectangle_view_browser'
+            color: '#000000ff'
+            width: parent.width * 0.100
+            height: 50
+            anchors.top: rectangle_email_text_field.bottom
+            anchors.left: parent.left
+
+            CheckBox {
+                checked: true
+                id: 'view_browser'
+                text: qsTr("Mostrar Navegador")
+            }
+        }
+
+        Rectangle {
+            id: 'rectangle_start_button'
+            color: '#000000ff'
+            width: parent.width
+            height: 50
+            anchors.top: rectangle_view_browser.bottom
             anchors.horizontalCenter: parent.horizontalCenter
 
             Rectangle {
@@ -114,6 +164,7 @@ ApplicationWindow {
                     onClicked: {
                         const initDate = init_date_text_field.text
                         const endDate = end_date_text_field.text
+                        const viewBrowser = view_browser.checkState
 
                         const banks = [
                             facta.checkState,
@@ -121,7 +172,7 @@ ApplicationWindow {
                             capital_dois.checkState
                         ]
 
-                        bridge.start(initDate, endDate, banks)
+                        bridge.start(initDate, endDate, viewBrowser, banks)
                     }
                 }
             }
