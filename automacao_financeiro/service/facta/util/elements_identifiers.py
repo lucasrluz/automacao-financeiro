@@ -1,0 +1,22 @@
+LOGIN_USERNAME = '#login'
+LOGIN_PASSWORD = '#senha'
+LOGIN_BUTTON_SUBMIT = '#btnLogin'
+
+BUTTON_ID = '#modalMuralAlertas > div > div.modal-footer > button'
+
+RELATORIOS_MOVIMENTOS_FATURA_BUTTON = '#main-nav > div > ul > li:nth-child(6) > ul > li:nth-child(6) > ul > li:nth-child(3) > a'
+PERIODO_INICIO = '#dt_ini'
+PERIODO_FIM = '#dt_fim'
+PESQUISAR_BUTTON = '#filtrar'
+GERAR_EXEL_BUTTON = '#content-wrapper > div > div > div > div:nth-child(3) > div > div > div > div > div > form > button'
+MENU = '#corpo > header > div > div > div > a.toggle-nav.btn.pull-left'
+FACTA_FINANCEIRA = '#main-nav > div > ul > li:nth-child(6) > a'
+FINANCEIRO = '#main-nav > div > ul > li:nth-child(6) > ul > li:nth-child(6) > a'
+
+MENU = '#corpo > header > div > div > div > a.toggle-nav.btn.pull-left'
+FACTA_FINANCEIRA = '#main-nav > div > ul > li:nth-child(6) > a'
+FINANCEIRO = '#main-nav > div > ul > li:nth-child(6) > ul > li:nth-child(6) > a'
+RELATORIO_DE_ANTECIPACOES = '#main-nav > div > ul > li:nth-child(6) > ul > li:nth-child(6) > ul > li:nth-child(7) > a > span'
+MONTH = '#dataPesquisaMes'
+YEAR = '#dataPesquisaAno'
+PESQUISAR_BUTTON_ANTECIPACAO = '#contratosAntecipadosFacta > div > div:nth-child(7) > button'

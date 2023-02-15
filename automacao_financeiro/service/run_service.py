@@ -35,8 +35,9 @@ def run_service(data, view_browser: str, banks: list):
     if banks[2] == 2:
         run_capital_dois(page, date)
 
-    # Rename and move files
-    sleep(10)
+    # Renomeia arquivos baixados e move eles para outro diretório
+    page.wait_for_timeout(5000)
+    
     files = os.listdir('./relatorios')
 
     for file in files:

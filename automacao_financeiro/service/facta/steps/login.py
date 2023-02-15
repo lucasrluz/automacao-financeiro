@@ -1,6 +1,6 @@
 from playwright.sync_api import Page
 from dotenv import dotenv_values
-from .util.element_identifiers_login import (
+from automacao_financeiro.service.facta.util.elements_identifiers import (
     LOGIN_USERNAME,
     LOGIN_PASSWORD,
     LOGIN_BUTTON_SUBMIT

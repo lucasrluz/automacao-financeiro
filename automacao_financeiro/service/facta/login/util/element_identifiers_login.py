@@ -1,3 +1,0 @@
-LOGIN_USERNAME = '#login'
-LOGIN_PASSWORD = '#senha'
-LOGIN_BUTTON_SUBMIT = '#btnLogin'
