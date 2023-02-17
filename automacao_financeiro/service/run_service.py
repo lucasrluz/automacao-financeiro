@@ -47,6 +47,6 @@ def run_service(data, view_browser: str, banks: list):
     files_for_move = os.listdir('./relatorios')
 
     for file in files_for_move:
-        shutil.move('./relatorios/' + file, '/home/lucas/Documents')
+        shutil.move('./relatorios/' + file, '/home/lucas/Documentos/relatorios')
 
     page.close()
