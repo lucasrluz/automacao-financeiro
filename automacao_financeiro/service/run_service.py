@@ -10,7 +10,7 @@ playwright = sync_playwright().start()
 
 def run_service(data, view_browser: str, banks: list):
     value = True
-
+    
     if view_browser == '2':
         value = False
     
