@@ -129,26 +129,11 @@ ApplicationWindow {
         }
 
         Rectangle {
-            id: 'rectangle_view_browser'
-            color: '#000000ff'
-            width: parent.width * 0.100
-            height: 50
-            anchors.top: rectangle_email_text_field.bottom
-            anchors.left: parent.left
-
-            CheckBox {
-                checked: true
-                id: 'view_browser'
-                text: qsTr("Mostrar Navegador")
-            }
-        }
-
-        Rectangle {
             id: 'rectangle_start_button'
             color: '#000000ff'
             width: parent.width
             height: 50
-            anchors.top: rectangle_view_browser.bottom
+            anchors.top: rectangle_email_text_field.bottom
             anchors.horizontalCenter: parent.horizontalCenter
 
             Rectangle {
@@ -164,7 +149,6 @@ ApplicationWindow {
                     onClicked: {
                         const initDate = init_date_text_field.text
                         const endDate = end_date_text_field.text
-                        const viewBrowser = view_browser.checkState
 
                         const banks = [
                             facta.checkState,
@@ -172,7 +156,7 @@ ApplicationWindow {
                             capital_dois.checkState
                         ]
 
-                        bridge.start(initDate, endDate, viewBrowser, banks)
+                        bridge.start(initDate, endDate, banks)
                     }
                 }
             }
@@ -192,14 +176,14 @@ ApplicationWindow {
             }
 
             CheckBox {
-                checked: true
+                checked: false
                 id: 'novo_saque'
                 text: qsTr("Novo Saque")
                 anchors.top: facta.bottom
             }
             
             CheckBox {
-                checked: true
+                checked: false
                 id: 'capital_dois'
                 text: qsTr("Capital2")
                 anchors.top: novo_saque.bottom

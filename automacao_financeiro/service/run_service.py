@@ -8,13 +8,8 @@ import os
 
 playwright = sync_playwright().start()
 
-def run_service(data, view_browser: str, banks: list):
-    value = True
-    
-    if view_browser == '2':
-        value = False
-    
-    browser = playwright.chromium.launch(headless=value, channel='chromium', downloads_path='/home/lucas/Projects/automacao-financeiro/relatorios')
+def run_service(data, banks: list):
+    browser = playwright.chromium.launch(headless=False, channel='chromium', downloads_path='/home/lucas/Projects/automacao-financeiro/relatorios')
     page = browser.new_page()
 
     date = {

@@ -8,8 +8,8 @@ from datetime import date
 load_dotenv()
 
 class Bridge(QObject):
-    @Slot(str, str, str, list, result=None)
-    def start(self, initDate, endDate, view_browser, banks):
+    @Slot(str, str, list, result=None)
+    def start(self, initDate, endDate, banks):
         data = {
             'init_date': initDate,
             'end_date': endDate,
@@ -31,7 +31,7 @@ class Bridge(QObject):
             init_date = str(new_day) + '/' + mount + '/' + year
             data['init_date'] = init_date
 
-        run_service(data, view_browser, banks)
+        run_service(data, banks)
 
 def run_ui():
     app = QGuiApplication()
